@@ -67,7 +67,7 @@ class UI:
 
         window = Toplevel()
         window.title("Password Check")
-        window.geometry("500x500")
+        window.geometry("610x380")
         window.configure(background='grey')
 
         # To center the window
@@ -83,7 +83,7 @@ class UI:
         window.geometry('{}x{}+{}+{}'.format(width, height, x, y))
         window.deiconify()
 
-        path = "../data/pic3.jpg"
+        path = "../data/pic.jpg"
 
         # Creates a Tkinter-compatible photo image, which can be used everywhere Tkinter expects an image object.
         img = ImageTk.PhotoImage(PIL.Image.open(path))
