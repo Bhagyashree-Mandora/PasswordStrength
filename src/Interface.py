@@ -34,7 +34,7 @@ class UI:
         self.e1.grid(row=0, column=1)
 
         Button(self.master, text='Quit', command=self.master.quit).grid(row=3, column=0, sticky=W, pady=4)
-        Button(self.master, text='Show', command=self.show_entry_fields).grid(row=3, column=1, sticky=W, pady=4)
+        Button(self.master, text='Check', command=self.show_entry_fields).grid(row=3, column=1, sticky=W, pady=4)
 
     def show_entry_fields(self):
         print("Entered password: %s" % (self.e1.get()))
@@ -64,8 +64,44 @@ class UI:
         # # label.image = x
         # label.pack()
         #
-        # execfile('image.py')
-        showerror("Password Check", "Sorry, password is weak")
+
+        window = Toplevel()
+        window.title("Password Check")
+        window.geometry("500x500")
+        window.configure(background='grey')
+
+        # # To center the window
+        # window.update_idletasks()
+        # width = window.winfo_width()
+        # frm_width = window.winfo_rootx() - window.winfo_x()
+        # win_width = width + 2 * frm_width
+        # height = window.winfo_height()
+        # titlebar_height = window.winfo_rooty() - window.winfo_y()
+        # win_height = height + titlebar_height + frm_width
+        # x = window.winfo_screenwidth() // 2 - win_width // 2
+        # y = window.winfo_screenheight() // 2 - win_height // 2
+        # window.geometry('{}x{}+{}+{}'.format(width, height, x, y))
+        # window.deiconify()
+
+        path = "../data/pic3.jpg"
+
+        # Creates a Tkinter-compatible photo image, which can be used everywhere Tkinter expects an image object.
+        img = ImageTk.PhotoImage(PIL.Image.open(path))
+
+        # The Label widget is a standard Tkinter widget used to display a text or image on the screen.
+        panel = Label(window, image=img)
+
+        # The Pack geometry manager packs widgets in rows or columns.
+        panel.pack(side="top")  # , fill = "both", expand = "yes")
+
+        button = Button(window, text='Ok', command=window.quit)
+        button.pack(side="bottom")  # , fill = "both", expand = "yes")
+
+        # Start the GUI
+        window.mainloop()
+
+        # execfile('img.py')
+        # showerror("Password Check", "Sorry, password is weak")
 
 
         # canvas_width = 300
@@ -97,4 +133,4 @@ class UI:
 
 
     def success(self):
-        showinfo("Password Check", "Success! Password is safe")
+        showinfo("Password Check", "Success! Password is safe from dictionary attack!")
