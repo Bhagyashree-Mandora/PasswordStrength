@@ -33,10 +33,11 @@ class UI:
         self.e1 = Entry(self.master)
         self.e1.grid(row=0, column=1)
 
+        # add buttons
         Button(self.master, text='Quit', command=self.master.quit).grid(row=3, column=0, sticky=W, pady=4)
-        Button(self.master, text='Check', command=self.show_entry_fields).grid(row=3, column=1, sticky=W, pady=4)
+        Button(self.master, text='Check', command=self.__show_entry_fields).grid(row=3, column=1, sticky=W, pady=4)
 
-    def show_entry_fields(self):
+    def __show_entry_fields(self):
         print("Entered password: %s" % (self.e1.get()))
         ip = self.e1.get()
 
@@ -45,26 +46,15 @@ class UI:
 
         if ip in data:
             print "failure"
-            self.failure()
+            self.__failure()
         else:
             print "success"
-            self.success()
+            self.__success()
 
     def render(self):
         mainloop( )
 
-    def failure(self):
-        # x = PIL.Image.open("../data/pic2.png")
-        #
-        # sec = Tk()
-        # # Label(self.master, text="Enter password").grid(row=0)
-        #
-        # x1 = PhotoImage(x)
-        # label = Label(sec, image=x1)
-        # # label.image = x
-        # label.pack()
-        #
-
+    def __failure(self):
         window = Toplevel()
         window.title("Password Check")
         window.geometry("610x380")
@@ -92,45 +82,13 @@ class UI:
         panel = Label(window, image=img)
 
         # The Pack geometry manager packs widgets in rows or columns.
-        panel.pack(side="top")  # , fill = "both", expand = "yes")
+        panel.pack(side="top")
 
         button = Button(window, text='Ok', command=window.destroy)
-        button.pack(side="bottom")  # , fill = "both", expand = "yes")
+        button.pack(side="bottom")
 
         # Start the GUI
         window.mainloop()
 
-        # execfile('img.py')
-        # showerror("Password Check", "Sorry, password is weak")
-
-
-        # canvas_width = 300
-        # canvas_height = 300
-        #
-        # sec = Tk()
-        #
-        # canvas = Canvas(sec,
-        #                 width=canvas_width,
-        #                 height=canvas_height)
-        # canvas.pack()
-        #
-        # x = PIL.Image.open("../data/pic.gif")
-        # img = PhotoImage(x)
-        # canvas.create_image(20, 20, anchor=NW, image=img)
-        #
-        # mainloop()
-
-
-        # root = tk.Tk();
-        # background = "background.png"
-        #
-        # photo = tk.PhotoImage(Image.open(background))
-        # canvas = tk.Canvas(root, width=500, height=500)
-        # canvas.pack()
-        # canvas.create_image(0, 0, anchor="nw", image=photo)
-        #
-        # root.mainloop()
-
-
-    def success(self):
+    def __success(self):
         showinfo("Password Check", "Success! Password is safe from dictionary attack!")

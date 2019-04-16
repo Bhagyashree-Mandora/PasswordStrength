@@ -2,7 +2,6 @@ class ExtendPasswords:
 
     def __init__(self):
         self.common = self.__populate()
-        # self.output_pwds()
 
     def __populate(self):
         common_pwd = open("../data/common_passwords","r")
@@ -12,9 +11,6 @@ class ExtendPasswords:
         for line in data:
             common.append(line.strip())
         return common
-
-    # def output_pwds(self):
-    #     print self.common
 
     def create_variations(self):
         rev = self.__reverse_technique(self.common)
@@ -68,51 +64,3 @@ class ExtendPasswords:
         with open("../data/all", "w") as f:
             for p in pwds:
                 f.write("%s\n" % p)
-
-
-p1 = ExtendPasswords()
-p1.create_variations()
-
-# words = ["12", "hello", "world"]
-# reversed = []
-# for w in words:
-#     reversed.append(w[::-1])
-#
-# print reversed
-#
-# rep = []
-# for w in words:
-#     rep.append(w*2)
-#     rep.append(w*3)
-#
-# print rep
-#
-# cap = []
-# for w in words:
-#     cap.append(w.capitalize())
-#
-# print cap
-
-# ["string"+str(i) for i in range(11)]
-# for i in range (10):
-#     string="string"+str(i)
-#     print string
-
-# dig = []
-# for w in words:
-#     for digit in range(10):
-#         dig.append(w + str(digit))
-#         dig.append(w[:-1] + str(digit) + w[-1:])
-# print dig
-
-# chars = ["!", "@", "#", "$", "%", "&"]
-# ch = []
-# for w in words:
-#     for c in chars:
-#         ch.append(w + c)
-# print ch
-
-# all = ["he"]
-# all.extend(words)
-# all.append(chars)
-# print all
