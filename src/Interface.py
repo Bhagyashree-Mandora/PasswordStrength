@@ -83,7 +83,7 @@ class UI:
         window.geometry('{}x{}+{}+{}'.format(width, height, x, y))
         window.deiconify()
 
-        path = "../data/pic.jpg"
+        path = "../data/pic.png"
 
         # Creates a Tkinter-compatible photo image, which can be used everywhere Tkinter expects an image object.
         img = ImageTk.PhotoImage(PIL.Image.open(path))
