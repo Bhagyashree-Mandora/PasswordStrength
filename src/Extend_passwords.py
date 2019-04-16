@@ -1,4 +1,4 @@
-class extendPasswords:
+class ExtendPasswords:
 
     def __init__(self):
         self.common = self.__populate()
@@ -70,7 +70,7 @@ class extendPasswords:
                 f.write("%s\n" % p)
 
 
-p1 = extendPasswords()
+p1 = ExtendPasswords()
 p1.create_variations()
 
 # words = ["12", "hello", "world"]
