@@ -70,18 +70,18 @@ class UI:
         window.geometry("500x500")
         window.configure(background='grey')
 
-        # # To center the window
-        # window.update_idletasks()
-        # width = window.winfo_width()
-        # frm_width = window.winfo_rootx() - window.winfo_x()
-        # win_width = width + 2 * frm_width
-        # height = window.winfo_height()
-        # titlebar_height = window.winfo_rooty() - window.winfo_y()
-        # win_height = height + titlebar_height + frm_width
-        # x = window.winfo_screenwidth() // 2 - win_width // 2
-        # y = window.winfo_screenheight() // 2 - win_height // 2
-        # window.geometry('{}x{}+{}+{}'.format(width, height, x, y))
-        # window.deiconify()
+        # To center the window
+        window.update_idletasks()
+        width = window.winfo_width()
+        frm_width = window.winfo_rootx() - window.winfo_x()
+        win_width = width + 2 * frm_width
+        height = window.winfo_height()
+        titlebar_height = window.winfo_rooty() - window.winfo_y()
+        win_height = height + titlebar_height + frm_width
+        x = window.winfo_screenwidth() // 2 - win_width // 2
+        y = window.winfo_screenheight() // 2 - win_height // 2
+        window.geometry('{}x{}+{}+{}'.format(width, height, x, y))
+        window.deiconify()
 
         path = "../data/pic3.jpg"
 
@@ -94,7 +94,7 @@ class UI:
         # The Pack geometry manager packs widgets in rows or columns.
         panel.pack(side="top")  # , fill = "both", expand = "yes")
 
-        button = Button(window, text='Ok', command=window.quit)
+        button = Button(window, text='Ok', command=window.destroy)
         button.pack(side="bottom")  # , fill = "both", expand = "yes")
 
         # Start the GUI
